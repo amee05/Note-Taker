@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7",
+    "util": "^0.12.3",
     "uuidv4": "^6.2.5"
   },
   "repository": {
