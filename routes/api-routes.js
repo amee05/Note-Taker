@@ -6,7 +6,7 @@
 // ==========
 
 const router = require("express").Router();
-const store = require("./../db/store");
+const store = require("./../db/store.js");
 
 // ==========
 // ROUTES
@@ -26,9 +26,9 @@ router.post("/notes", function (req, res) {
     .catch(err => res.status(500).json(err))
 });
 
-router.delete("/notes/:title", function (req, res) {
+router.delete("/notes/:id", function (req, res) {
   store
-    .deleteNotes(req.params.title)
+    .deleteNotes(req.params.id)
     .then(() => res.json({ ok: true }))
     .catch(err => res.status(500).json(err))
 });

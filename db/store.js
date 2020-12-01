@@ -31,7 +31,7 @@ class Store {
     });
   };
   addNote(newNote) {
-    //create new obj with notes param using notes.title and notes.text
+    //create new obj with notes param using notes.id and notes.text
     console.log(newNote);
     return this.getNotes().then(notes => {
       // console.log(newNote, notes);
@@ -43,13 +43,13 @@ class Store {
     //this.read().then(youll get info back)
     //this.write with old json info and new obj from frontend
   };
-  deleteNotes(title) {
+  deleteNotes(id) {
     // use the filter function
     return this.getNotes()
       .then(notes => {
-        console.log("This note says " + title);
+        console.log("This note says " + id);
         for (var i = 0; i < notes.length; i++) {
-          if (notes[i].title === title) {
+          if (notes[i].id === id) {
             // Splice takes i position, and then deletes the 1 note.
             notes.splice(i, 1);
             console.log(notes);
@@ -57,15 +57,7 @@ class Store {
           }
         }
         this.write(notes);
-        //     fs.writeFileSync(jsonFilePath, JSON.stringify(database), function (err) {
-        //         if (err) {
-        //             console.log("There is an error in the writeFile if/else statement.")
-        //             return console.log(err);
-        //         } else {
-        //             console.log("Your note was deleted!");
-        //         }
-        //     });
-        //     res.json(database);
+        
       })
   }
 };
