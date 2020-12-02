@@ -24,7 +24,6 @@ class Store {
     return this.read().then(notes => {
 
       let parsedNotes = JSON.parse(notes);
-      console.log(parsedNotes);
       return parsedNotes;
     });
   };
@@ -34,11 +33,8 @@ class Store {
     return this.getNotes().then(notes => {
 
       const newNoteList = [...notes, newNote];
-      console.log(newNoteList);
-
       return this.write(newNoteList);
     })
-
   };
   deleteNotes(title) {
 
@@ -47,14 +43,10 @@ class Store {
         console.log("This note says " + title);
         for (var i = 0; i < notes.length; i++) {
           if (notes[i].title === title) {
-
             notes.splice(i, 1);
-            console.log(notes);
-            break;
-          }
+        break;}
         }
         this.write(notes);
-
       })
   }
 };
